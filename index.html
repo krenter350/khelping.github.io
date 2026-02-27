@@ -229,8 +229,18 @@
       .lang-bar { padding:8px 20px; }
       nav { padding:12px 20px; top:34px; }
       .nav-links { display:none; }
-      .hero { padding:140px 20px 60px; flex-direction:column; align-items:flex-start; gap:40px; }
-      .hero-visual { display:none; }
+      .hero {
+        padding:140px 20px 60px;
+        flex-direction:column;
+        align-items:stretch;
+        gap:32px;
+      }
+      .hero-visual {
+        display:block;
+        width:100%;
+        max-width:480px;
+        margin:0 auto;
+      }
       .hero-stats { gap:20px; }
       section { padding:64px 20px; }
       .steps { grid-template-columns:1fr 1fr; }
@@ -244,6 +254,8 @@
       .steps { grid-template-columns:1fr; }
       .trust-grid { grid-template-columns:1fr; }
       .contact-cards { grid-template-columns:1fr; max-width:320px; }
+      .phone-mockup { padding:18px 14px; }
+      .chat-bubble { font-size:12px; }
     }
 
     /* ─── LANG HIDDEN ─── */
@@ -681,7 +693,7 @@
     </div>
     <div class="contact-info">
       <div class="contact-info-item">📞 <a href="tel:025254186">02-525-4186</a></div>
-      <div class="contact-info-item">✉️ <a href="mailto:khelpingcenter@gmail.com">khelpingcenter@gmail.com</a></div>
+      <div class="contact-info-item">✉️ <a href="/cdn-cgi/l/email-protection#97fcfff2fbe7fef9f0f4f2f9e3f2e5d7f0faf6fefbb9f4f8fa"><span class="__cf_email__" data-cfemail="9bf0f3fef7ebf2f5fcf8fef5effee9dbfcf6faf2f7b5f8f4f6">[email&#160;protected]</span></a></div>
     </div>
   </div>
 </section>
@@ -701,7 +713,7 @@
   <div class="footer-copy">© 2026 Khelping · THAI ช็อปปิ้ง · All rights reserved</div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   function setLang(lang) {
     document.body.className = 'lang-' + lang;
     document.getElementById('btn-th').classList.toggle('active', lang === 'th');
@@ -729,12 +741,4 @@
     });
   }, { threshold: 0.08 });
 
-  document.querySelectorAll('.step, .trust-card, .price-note, .site-tag').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(20px)';
-    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-    observer.observe(el);
-  });
-</script>
-</body>
-</html>
+  document.querySelectorAll('.step,
