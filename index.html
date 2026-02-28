@@ -258,17 +258,35 @@
         margin:0 auto;
       }
       .hero-stats { gap:20px; }
-      section { padding:64px 20px; }
-      .steps { grid-template-columns:1fr 1fr; }
+      section { padding:48px 20px; }
+
+      /* ── STEPS: 모바일 2열 가로 compact ── */
+      .steps { grid-template-columns:1fr 1fr; gap:14px; }
       .steps::before { display:none; }
-      .trust-grid { grid-template-columns:1fr 1fr; }
+      .step { background:var(--blue-pale); border-radius:16px; padding:16px 12px; }
+      .step-num { width:52px; height:52px; font-size:20px; margin-bottom:12px; }
+      .step-title { font-size:14px; margin-bottom:4px; }
+      .step-desc { font-size:12px; }
+      .how-header { margin-bottom:32px; }
+
+      /* ── TRUST: 모바일 가로 스크롤 ── */
+      .trust-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap:12px;
+      }
+      .trust-card { padding:18px 14px; border-radius:16px; }
+      .trust-icon { font-size:26px; margin-bottom:8px; }
+      .trust-title { font-size:14px; margin-bottom:4px; }
+      .trust-desc { font-size:12px; line-height:1.5; }
+
       .price-notes { grid-template-columns:1fr; }
       .contact-cards { grid-template-columns:1fr 1fr; }
     }
     @media (max-width:540px) {
       .hero-buttons { flex-direction:column; }
-      .steps { grid-template-columns:1fr; }
-      .trust-grid { grid-template-columns:1fr; }
+      /* steps, trust 모바일에서 2열 유지 (더 compact하게) */
+      .steps { grid-template-columns:1fr 1fr; }
+      .trust-grid { grid-template-columns:1fr 1fr; }
       .contact-cards { grid-template-columns:1fr; max-width:320px; }
       .phone-mockup { padding:18px 14px; }
       .chat-bubble { font-size:12px; }
@@ -681,7 +699,7 @@
         <span data-lang="th">ขึ้นอยู่กับแต่ละเว็บไซต์ค่ะ Coupang บางทีได้วันถัดไป Olive Young ในกรุงโซลบางรายการได้วันเดียวกัน เว็บอื่นๆ โดยทั่วไป 2-3 วันค่ะ แอดมินแจ้งสถานะให้ทุกขั้นตอน</span>
         <span data-lang="kr">쇼핑몰마다 달라요. 쿠팡은 로켓배송 가능, 올리브영 서울은 당일배송(오늘드림)도 있어요. 그 외는 보통 2~3일. 단계별로 배송 현황을 알려드려요</span>
       </div>
-    </div>
+    </details>
   </div>
 </section>
 
@@ -737,4 +755,12 @@
     });
   }, { threshold: 0.08 });
 
-  document.querySelectorAll('.step,
+  document.querySelectorAll('.step, .trust-card, .price-note, .site-tag').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>
