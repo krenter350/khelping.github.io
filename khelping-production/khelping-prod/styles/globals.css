@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-white text-gray-800;
+    font-family: 'Sarabun', 'Noto Sans KR', 'Noto Sans Thai', system-ui, sans-serif;
+  }
+
+  :lang(th) { line-height: 1.8; }
+  :lang(ko) {
+    line-height: 1.7;
+    font-family: 'Noto Sans KR', 'Sarabun', system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  .btn-line {
+    @apply inline-flex items-center gap-2 rounded-full font-bold text-white transition-all duration-300;
+    background-color: #06C755;
+    box-shadow: 0 4px 14px rgba(6, 199, 85, 0.35);
+  }
+  .btn-line:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(6, 199, 85, 0.45);
+  }
+
+  .btn-fb {
+    @apply inline-flex items-center gap-2 rounded-full font-bold text-white transition-all duration-300;
+    background-color: #1877F2;
+    box-shadow: 0 4px 14px rgba(24, 119, 242, 0.35);
+  }
+  .btn-fb:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(24, 119, 242, 0.45);
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 rounded-full font-bold text-white transition-all duration-300;
+    background: linear-gradient(135deg, #00BCD4, #7B2D8E);
+    box-shadow: 0 4px 14px rgba(0, 188, 212, 0.3);
+  }
+  .btn-primary:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 6px 20px rgba(123, 45, 142, 0.3);
+  }
+
+  .section-container {
+    @apply mx-auto max-w-[960px] px-4 py-16;
+  }
+  @media (min-width: 640px) {
+    .section-container { @apply px-6 py-20; }
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    background: linear-gradient(135deg, #00BCD4, #7B2D8E);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glass {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+}
